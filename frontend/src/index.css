@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(61, 156, 240, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(52, 211, 153, 0.06), transparent),
+    #0b0f14;
+  font-family: "IBM Plex Sans", Segoe UI, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-white/5 bg-surface-900/80 shadow-panel backdrop-blur;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium
+      transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+      focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-surface-950 hover:bg-sky-400;
+  }
+
+  .btn-secondary {
+    @apply btn border border-white/10 bg-surface-800 text-slate-100 hover:bg-surface-700;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger/90 text-surface-950 hover:bg-red-400;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-white/10 bg-surface-850 px-3 py-2 text-sm text-slate-100
+      placeholder:text-slate-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-slate-400;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2f3f56;
+  border-radius: 999px;
+}
